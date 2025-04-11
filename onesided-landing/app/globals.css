@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --navbar-bg: rgba(0, 0, 0, 0.9);
+  --background-dark: #000000; /* Pure black background */
+  --grid-color: rgba(255, 255, 255, 0.07); /* White grid with low opacity */
+  --card-bg: #0A0A0F; /* Slightly lighter than black for cards */
+  --primary-blue: #00A2FF;
+  --secondary-blue: #0076BA;
+  --blue-glow: rgba(0, 162, 255, 0.3);
+}
+
+body {
+  @apply bg-black text-foreground;
+  background-color: var(--background-dark);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Global grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(38, 38, 38, 0.3) 1px, transparent 1px),
+                   linear-gradient(to bottom, rgba(38, 38, 38, 0.3) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Radial gradient overlay for the grid */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 20%, black 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grid pattern has been removed as it's now applied globally */
+
+/* Grid magnification effect has been removed */
+
+.blue-glow {
+  box-shadow: 0 0 40px 5px rgba(0, 162, 255, 0.3);
+  transition: box-shadow 0.5s ease;
+}
+
+.gray-glow {
+  box-shadow: 0 0 40px 5px rgba(127, 150, 163, 0.3);
+  transition: box-shadow 0.5s ease;
+}
+
+/* Roadmap section active state */
+.roadmap-active .roadmap-card {
+  box-shadow: 0 0 60px 10px rgba(0, 162, 255, 0.5);
+}
+
+.roadmap-active {
+  z-index: 10;
+}
+
+.section-padding {
+  padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 5rem 4rem;
+  }
+}
+
+.container-width {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes rotateIn {
+  from { transform: rotate(-5deg) scale(0.9); opacity: 0; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.8s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse 3s infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-rotate-in {
+  animation: rotateIn 0.8s ease-out forwards;
+}
+
+/* Scroll-triggered animations */
+.reveal {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
