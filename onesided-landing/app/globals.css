@@ -56,9 +56,23 @@ body::after {
   transition: box-shadow 0.5s ease;
 }
 
+.roadmap-subtle-glow {
+  box-shadow: 0 0 15px 2px rgba(0, 162, 255, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Timeline dot styles */
+.timeline-dot {
+  box-shadow: 0 0 10px 2px rgba(0, 162, 255, 0.4);
+}
+
 /* Roadmap section active state */
 .roadmap-active .roadmap-card {
-  box-shadow: 0 0 60px 10px rgba(0, 162, 255, 0.5);
+  box-shadow: 0 0 20px 3px rgba(0, 162, 255, 0.25);
+}
+
+.roadmap-active .timeline-dot {
+  box-shadow: 0 0 15px 3px rgba(0, 162, 255, 0.5);
 }
 
 .roadmap-active {
@@ -131,6 +145,12 @@ body::after {
   to { transform: rotate(0) scale(1); opacity: 1; }
 }
 
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px 2px rgba(0, 162, 255, 0.2); }
+  50% { box-shadow: 0 0 15px 3px rgba(0, 162, 255, 0.4); }
+  100% { box-shadow: 0 0 10px 2px rgba(0, 162, 255, 0.2); }
+}
+
 .animate-fade-in {
   animation: fadeIn 1s ease-out forwards;
 }
@@ -161,6 +181,10 @@ body::after {
 
 .animate-rotate-in {
   animation: rotateIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow-subtle {
+  animation: pulseGlow 4s infinite;
 }
 
 /* Scroll-triggered animations */

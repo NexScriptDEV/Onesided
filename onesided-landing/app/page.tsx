@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import Navbar from "@/components/Navbar";
+import NavbarDemo from "@/components/ui/resizable-navbar-demo";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import RobloxSection from "@/components/RobloxSection";
 import RobloxStudioSection from "@/components/RobloxStudioSection";
-import Roadmap from "@/components/Roadmap";
+import VerticalTimeline from "@/components/VerticalTimeline";
 import Quote from "@/components/Quote";
 import Footer from "@/components/Footer";
 import { initScrollReveal } from "@/utils/gridMagnify";
@@ -30,12 +30,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--background-dark)] dark">
-      <Navbar />
+      <NavbarDemo />
       <Hero />
       <Projects />
       <RobloxSection />
       <RobloxStudioSection />
-      <Roadmap />
+      <VerticalTimeline />
       <Quote />
       <Footer />
     </div>
